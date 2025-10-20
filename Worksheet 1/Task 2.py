@@ -10,6 +10,11 @@ class Deck:
         Deck.cards = [suit + number for suit in "HCDS" for number in "123456789JQKA"]
         Deck.next_card_no = 0
 
+    @staticmethod
+    def remove_joker_reset():
+        Deck.cards = [suit + number for suit in "HCDS" for number in "123456789QKA"]
+        Deck.next_card_no = 0
+
     def __init__(self):
         if Deck.next_card_no == 0:
             random.shuffle(Deck.cards)
