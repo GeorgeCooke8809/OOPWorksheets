@@ -5,6 +5,11 @@ class Deck:
     cards = [suit + number for suit in "HCDS" for number in "123456789JQKA"]
     next_card_no = 0
 
+    @staticmethod
+    def reset():
+        Deck.cards = [suit + number for suit in "HCDS" for number in "123456789JQKA"]
+        Deck.next_card_no = 0
+
     def __init__(self):
         if Deck.next_card_no == 0:
             random.shuffle(Deck.cards)
@@ -17,23 +22,30 @@ class Deck:
 
             Deck.next_card_no += 1
 
-deck1 = []
 
-for card_no in range(10):
-    card = Deck()
-    deck1.append(card)
+for i in range(2):
+    deck1 = []
 
-print("Player 1:")
-for card in deck1:
-    print("Card No", card.card_no, "Description", card.card_description)
+    for card_no in range(10):
+        card = Deck()
+        deck1.append(card)
 
+    print("Player 1:")
+    for card in deck1:
+        print("Card No", card.card_no, "Description", card.card_description)
 
-deck2 = []
+    print()
 
-for card_no in range(10):
-    card = Deck()
-    deck2.append(card)
+    deck2 = []
 
-print("\nPlayer 2:")
-for card in deck2:
-    print("Card No", card.card_no, "Description", card.card_description)
+    for card_no in range(10):
+        card = Deck()
+        deck2.append(card)
+
+    print("Player 2:")
+    for card in deck2:
+        print("Card No", card.card_no, "Description", card.card_description)
+
+    print()
+
+    Deck.reset()
